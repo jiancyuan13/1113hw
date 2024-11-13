@@ -22,30 +22,31 @@ int binary_search(T arr[], int size, T target) {
 int main(void) {
     char T;
     int n, q;
-    cin >> T >> n >> q;
-
-    if (T == 'i') {
-        int* arr = new int [n];
-        for (int i = 0; i < n; ++i) {
-            cin >> arr[i];
+    while (cin >> T >> n >> q) {
+        if (T == 'i') {
+            int* arr = new int[n];
+            for (int i = 0; i < n; ++i) {
+                cin >> arr[i];
+            }
+            for (int i = 0; i < q; ++i) {
+                int target;
+                cin >> target;
+                int result = binary_search(arr, n, target);
+                cout << result << endl;
+            }
         }
-        for (int i = 0; i < q; ++i) {
-            int target;
-            cin >> target;
-            int result = binary_search(arr, n, target);
-            cout << result << endl;
+        else if (T == 's') {
+            string* arr = new string[n];
+            for (int i = 0; i < n; ++i) {
+                cin >> arr[i];
+            }
+            for (int i = 0; i < q; ++i) {
+                string target;
+                cin >> target;
+                int result = binary_search(arr, n, target);
+                cout << result << endl;
+            }
         }
-    }
-    else if (T == 's') {
-        string* arr = new string[n];
-        for (int i = 0; i < n; ++i) {
-            cin >> arr[i];
-        }
-        for (int i = 0; i < q; ++i) {
-            string target;
-            cin >> target;
-            int result = binary_search(arr, n, target);
-            cout << result << endl;
-        }
+        cout << endl;
     }
 }
